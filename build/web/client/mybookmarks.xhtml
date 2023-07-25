@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+          <ui:include src = "css.xhtml" />
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <ui:include src = "header.xhtml" />
+            <!-- Titlebar ================================================== -->
+            <div id="titlebar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <h2>Bookmarked Listings</h2>
+
+                            <!-- Breadcrumbs -->
+                            <nav id="breadcrumbs">
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li>Bookmarked Listings</li>
+                                </ul>
+                            </nav>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Content ================================================== -->
+            <div class="container">
+                <div class="row">
+
+
+                    <!-- Widget -->
+                    <div class="col-md-4">
+                        <div class="sidebar left">
+
+<!--                            <div class="my-account-nav-container">
+
+                                <ul class="my-account-nav">
+                                    <li class="sub-nav-title">Manage Account</li>
+                                    <li><a href="my-profile.html"><i class="sl sl-icon-user"></i> My Profile</a></li>
+                                    <li><a href="my-bookmarks.html" class="current"><i class="sl sl-icon-star"></i> Bookmarked Listings</a></li>
+                                </ul>
+
+                                <ul class="my-account-nav">
+                                    <li class="sub-nav-title">Manage Listings</li>
+                                    <li><a href="my-properties.html"><i class="sl sl-icon-docs"></i> My Properties</a></li>
+                                    <li><a href="submit-property.html"><i class="sl sl-icon-action-redo"></i> Submit New Property</a></li>
+                                </ul>
+
+                                <ul class="my-account-nav">
+                                    <li><a href="#"><i class="sl sl-icon-power"></i> Log Out</a></li>
+                                </ul>
+
+                            </div>-->
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <h:dataTable styleClass="manage-table bookmarks-table responsive-table" value="#{clientBean.showwishdata()}" var="s">
+                        <f:facet name="header"><i class="fa fa-file-text"></i> Property</f:facet>  
+                        <h:column class="title-container">
+                            <img src="images/#{clientBean.showimage(s.propertyId.propertyId)}" alt=""/>
+                                        <div class="title">
+                                            <h4><a href="#">#{s.propertyId.propertyName}</a></h4>
+                                            <span>#{s.propertyId.description}</span>
+                                            <span class="table-property-price">#{s.propertyId.price}</span>
+                                            
+                                        </div>
+
+                        </h:column>
+                        <h:column class="action">
+                            <h:form>
+                                <h:commandLink styleClass="delete" action="#{clientBean.deletewishlist(s.wishlistId)}">  
+                                <i class="fa fa-remove"></i><h:outputText value="Remove"></h:outputText>  
+                            </h:commandLink>    
+                            <h:commandLink id="image-link-id" styleClass="delete" action="#{clientBean.showpropertybyid(s.propertyId.propertyId)}">  
+                                <i class="fa fa-book"></i><h:outputText value="Details"></h:outputText>  
+                            </h:commandLink>
+                            </h:form>    
+<!--                        <a href="#{clientBean.showpropertybyid(s.propertyId.propertyId)}" class="delete"><i class="fa fa-book"></i> Details</a>-->
+                        </h:column>
+                        </h:dataTable>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Footer
+            ================================================== -->
+                <div class="margin-top-55"></div>
+
+                <ui:include src = "footer.xhtml" />
+                <!-- Footer / End -->
+
+
+                <!-- Back To Top Button -->
+                <div id="backtotop"><a href="#"></a></div>
+
+
+            <!-- Scripts
+            ================================================== -->
+            <ui:include src = "bootomscript.xhtml" />
+
+            <div id="style-switcher">
+                <h2>Color Switcher <a href="#"><i class="sl sl-icon-settings"></i></a></h2>
+
+                <div>
+                    <ul class="colors" id="color1">
+                        <li><a href="#" class="blue" title="Blue"></a></li>
+                        <li><a href="#" class="green" title="Green"></a></li>
+                        <li><a href="#" class="orange" title="Orange"></a></li>
+                        <li><a href="#" class="navy" title="Navy"></a></li>
+                        <li><a href="#" class="yellow" title="Yellow"></a></li>
+                        <li><a href="#" class="peach" title="Peach"></a></li>
+                        <li><a href="#" class="beige" title="Beige"></a></li>
+                        <li><a href="#" class="purple" title="Purple"></a></li>
+                        <li><a href="#" class="celadon" title="Celadon"></a></li>
+                        <li><a href="#" class="pink" title="Pink"></a></li>
+                        <li><a href="#" class="red" title="Red"></a></li>
+                        <li><a href="#" class="brown" title="Brown"></a></li>
+                        <li><a href="#" class="cherry" title="Cherry"></a></li>
+                        <li><a href="#" class="cyan" title="Cyan"></a></li>
+                        <li><a href="#" class="gray" title="Gray"></a></li>
+                        <li><a href="#" class="olive" title="Olive"></a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- Style Switcher / End -->
+        </div>
+    </h:body>
+</html>
+

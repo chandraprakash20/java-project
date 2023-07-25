@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+          <ui:include src = "css.xhtml" />
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <ui:include src = "header.xhtml" />
+            <!-- Titlebar
+================================================== -->
+<div id="titlebar" class="property-titlebar margin-bottom-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				
+                            <a href="#" class="back-to-listings"></a>
+				<div class="property-title">
+                                    <h2>#{clientBean.propertyname} <span class="property-badge">For #{clientBean.type}</span></h2>
+					<span>
+						<a href="#location" class="listing-address">
+							<i class="fa fa-map-marker"></i>
+							#{clientBean.address}
+						</a>
+					</span>
+				</div>
+
+				<div class="property-pricing">
+                                    <div class="property-price">₹#{clientBean.price}</div>
+					
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="container">
+	<div class="row margin-bottom-50">
+		<div class="col-md-12">
+		
+			<!-- Slider -->
+			<div class="property-slider default">
+                            <c:forEach var="a" items="#{clientBean.getPropertyimagetbs}">
+                                <a href="images/#{a.image}" data-background-image="images/#{a.image}" class="item mfp-gallery"></a>
+                            </c:forEach>    
+                        </div>
+
+			<!-- Slider Thumbs -->
+			<div class="property-slider-nav">
+                            <c:forEach var="a" items="#{clientBean.getPropertyimagetbs}">
+				<div class="item"><img src="images/#{a.image}" alt=""/></div>
+			   </c:forEach>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+
+		<!-- Property Description -->
+		<div class="col-lg-8 col-md-7">
+			<div class="property-description">
+
+				<!-- Main Features -->
+				<ul class="property-main-features">
+                                    <li>Area <span>#{clientBean.areaunit} sq ft</span></li>
+                                    <li>Ploat Area <span>#{clientBean.plotarea}</span></li>
+                                    <li>Price <span>₹#{clientBean.price}</span></li>
+				</ul>
+
+
+				<!-- Description -->
+				<h3 class="desc-headline">Description</h3>
+				
+					<p>
+						#{clientBean.decription}. 
+					</p>
+				
+
+				
+				
+
+
+				<!-- Features -->
+				<h3 class="desc-headline">Features</h3>
+				<ul class="property-features checkboxes margin-top-0">
+                                    <c:forEach var="a" items="#{clientBean.getPropertyfeaturetbs}">
+                                        <li>#{a.featureId.feature}</li>
+                                    </c:forEach>    
+				</ul>
+
+			</div>
+		</div>
+		<!-- Property Description / End -->
+
+
+		<!-- Sidebar -->
+		<div class="col-lg-4 col-md-5">
+			<div class="sidebar sticky right">
+
+
+
+				<!-- Widget -->
+				<div class="widget">
+					<h3 class="margin-bottom-30 margin-top-30">Owner Details</h3>
+					
+					<!-- Mortgage Calculator -->
+					<form action="javascript:void(0);" autocomplete="off" class="mortgageCalc" data-calc-currency="USD">
+						<div class="calc-input">
+                                                    <h:inputText value = "#{clientBean.username}" readonly="true"/>
+						    
+						</div>
+
+						<div class="calc-input">
+                                                    <h:inputText value = "#{clientBean.email}" readonly="true"/>
+						    
+						</div>
+
+						<div class="calc-input">
+                                                    <h:inputText value = "#{clientBean.mobileno}" readonly="true"/>
+							
+						</div>
+
+					</form>
+					<!-- Mortgage Calculator / End -->
+
+				</div>
+				<!-- Widget / End -->
+
+
+				
+
+			</div>
+		</div>
+		<!-- Sidebar / End -->
+
+	</div>
+</div>
+            <!-- Footer
+            ================================================== -->
+                <div class="margin-top-55"></div>
+
+                <ui:include src = "footer.xhtml" />
+                <!-- Footer / End -->
+
+
+                <!-- Back To Top Button -->
+                <div id="backtotop"><a href="#"></a></div>
+
+
+            <!-- Scripts
+            ================================================== -->
+            <ui:include src = "bootomscript.xhtml" />
+
+            <div id="style-switcher">
+                <h2>Color Switcher <a href="#"><i class="sl sl-icon-settings"></i></a></h2>
+
+                <div>
+                    <ul class="colors" id="color1">
+                        <li><a href="#" class="blue" title="Blue"></a></li>
+                        <li><a href="#" class="green" title="Green"></a></li>
+                        <li><a href="#" class="orange" title="Orange"></a></li>
+                        <li><a href="#" class="navy" title="Navy"></a></li>
+                        <li><a href="#" class="yellow" title="Yellow"></a></li>
+                        <li><a href="#" class="peach" title="Peach"></a></li>
+                        <li><a href="#" class="beige" title="Beige"></a></li>
+                        <li><a href="#" class="purple" title="Purple"></a></li>
+                        <li><a href="#" class="celadon" title="Celadon"></a></li>
+                        <li><a href="#" class="pink" title="Pink"></a></li>
+                        <li><a href="#" class="red" title="Red"></a></li>
+                        <li><a href="#" class="brown" title="Brown"></a></li>
+                        <li><a href="#" class="cherry" title="Cherry"></a></li>
+                        <li><a href="#" class="cyan" title="Cyan"></a></li>
+                        <li><a href="#" class="gray" title="Gray"></a></li>
+                        <li><a href="#" class="olive" title="Olive"></a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- Style Switcher / End -->
+        </div>
+    </h:body>
+</html>
+

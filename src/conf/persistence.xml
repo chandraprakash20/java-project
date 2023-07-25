@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="RentManagementPU" transaction-type="JTA">
+      
+      <jta-data-source>jndipropertyrental</jta-data-source>
+    <class>entity.Propertyamenitiestb</class>
+    <class>entity.Sellertb</class>
+    <class>entity.Propertytypetb</class>
+    <class>entity.Citytb</class>
+    <class>entity.Propertyimagetb</class>
+    <class>entity.Propertytb</class>
+    <class>entity.Grouptb</class>
+    <class>entity.Statetb</class>
+    <class>entity.Usergrouptb</class>
+    <class>entity.Propertyfeaturestb</class>
+    <class>entity.Featurestb</class>
+    <class>entity.Amenitiestb</class>
+    <class>entity.Wishlisttb</class>
+    <class>entity.Usertb</class>
+    <class>entity.Featurevaluetb</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties/>
+  </persistence-unit>
+</persistence>

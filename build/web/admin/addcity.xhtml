@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>        
+        <ui:include src = "components/css.xhtml" />
+        <style>
+            .error{color: red}
+        </style>
+    </h:head>
+    <h:body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+            <ui:include src = "components/header.xhtml" />
+            <ui:include src = "components/nav.xhtml" />
+            <div class="content-wrapper">
+                <section class="content">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">City Information</h3>
+                        </div>
+
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <h:form>		
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group col-md-3">
+                                            
+                                            <h:inputHidden value="#{adminBean.cityid}" id="cityid"></h:inputHidden>  
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <h:outputLabel for="State">State<h:outputText value="*" lang="en" style="color: red"></h:outputText></h:outputLabel>  
+                                            <h:selectOneMenu  class ="form-control" value="#{adminBean.stateid}">
+                                                <f:selectItems value="#{adminBean.showstate()}" var="s" itemValue="#{s.stateId}" itemLabel="#{s.state}" />
+                                           </h:selectOneMenu> 
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <h:outputLabel for="City">City<h:outputText value="*" lang="en" style="color: red"></h:outputText></h:outputLabel>  
+                                            <h:inputText id="cityname" value="#{adminBean.city}" label="cityname"          
+                                                 alt="cityname" autocomplete="off" readonly="false" required="true"              
+                                                requiredMessage="cityname is required"  accesskey="q" styleClass="form-control">  
+                                            <f:validateRegex pattern="^([a-zA-Z]+(.)?[\s]*)$" />  
+                                            </h:inputText>
+<!--                                            <h:message for="cityname" styleClass="error" infoStyle="display:none"></h:message>-->
+                                            <p:message for="cityname" style="font-size: 15px;"/>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+
+                                
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group col-md-4">
+                                            <c:if test="#{adminBean.cityid==0}"><h:commandButton value="Submit" id="btnSubmit" action="#{adminBean.addcity()}" styleClass="btn btn-primary"/></c:if>
+                                            <c:if test="#{adminBean.cityid!=0}"><h:commandButton value="Update" id="btnUpdate" action="#{adminBean.updatecity()}" styleClass="btn btn-primary"/></c:if>
+<!--                                                <a href="#!" onclick="formBack();" class="btn btn-default btn-flat" style="margin-top: 8px;margin-right: 15px;">Back</a>-->  
+                                        </div>
+                                    </div>
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+<!--            <footer class="main-footer">
+                    <ui:insert name = "footer" >
+                        <ui:include src = "components/footer.xhtml" />
+                    </ui:insert>
+            </footer>-->
+        </div>
+        <ui:include src = "components/bottomscript.xhtml" />
+    </h:body>
+</html>
+

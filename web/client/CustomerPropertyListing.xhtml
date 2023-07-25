@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+          <ui:include src = "css.xhtml" />
+          <style>
+            .set{width: 10px;height: 10px}
+        </style>
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <ui:include src = "header.xhtml" />
+            <!-- Search
+================================================== -->
+<section class="search margin-bottom-50">
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+
+			<!-- Title -->
+			<h3 class="search-title">Search</h3>
+
+			<!-- Form -->
+			<div class="main-search-box no-shadow">
+
+
+				<!-- Row With Forms -->
+                                
+				<div class="row with-forms">
+                                    <h:form>
+					<!-- Status -->
+					<div class="col-md-3">
+<!--						<select data-placeholder="Any Status" class="chosen-select-no-single" >
+							<option>Any Status</option>	
+							<option>For Sale</option>
+							<option>For Rent</option>
+						</select>-->
+                                            <h:selectOneMenu value = "#{clientBean.searchtype}" class="chosen-select-no-single"> 
+                                                <f:selectItem itemValue = "" itemLabel = "Any Status" />
+                                                <f:selectItem itemValue = "Sale" itemLabel = "For Sale" /> 
+                                                <f:selectItem itemValue = "Rent" itemLabel = "For Rent" /> 
+                                            </h:selectOneMenu> 
+					</div>
+
+					<!-- Property Type -->
+					<div class="col-md-3">
+                                            <h:selectOneMenu value = "#{clientBean.searchptype}" class="chosen-select-no-single"> 
+                                                <f:selectItem itemLabel="Select Type" itemValue="" ></f:selectItem>
+                                                    <f:selectItems value="#{clientBean.showPropertytype()}" var="p" itemValue="#{p.propertytypeId}" itemLabel="#{p.propertyName}" />
+                                                </h:selectOneMenu>
+					</div>
+
+					<!-- Main Search Input -->
+					<div class="col-md-3">
+                                                <h:selectOneMenu value = "#{clientBean.searchcity}" class="chosen-select-no-single"> 
+                                                    <f:selectItem itemLabel="Select City" itemValue=""></f:selectItem>
+                                                    <f:selectItems value="#{adminBean.showcity()}" var="s" itemValue="#{s.cityId}" itemLabel="#{s.city}" />
+                                                </h:selectOneMenu> 
+                                                <h:commandButton value="Search" class="button" action="#{clientBean.searchbytype()}"></h:commandButton>
+						
+					</div>
+                                </h:form>    
+				</div>
+                                    
+				<!-- Row With Forms / End -->
+
+
+				<!-- Row With Forms -->
+<!--				<div class="row with-forms">
+
+					 Min Price 
+					
+
+					 Max Price 
+					
+
+
+					 Min Price 
+					<div class="col-md-3">
+						
+						 Select Input 
+						<div class="select-input disabled-first-option">
+							<input type="text" placeholder="Min Price" data-unit="USD"/>
+							<select>		
+								<option>Min Price</option>
+								<option>1 000</option>
+								<option>2 000</option>	
+								<option>3 000</option>	
+								<option>4 000</option>	
+								<option>5 000</option>	
+								<option>10 000</option>	
+								<option>15 000</option>	
+								<option>20 000</option>	
+								<option>30 000</option>
+								<option>40 000</option>
+								<option>50 000</option>
+								<option>60 000</option>
+								<option>70 000</option>
+								<option>80 000</option>
+								<option>90 000</option>
+								<option>100 000</option>
+								<option>110 000</option>
+								<option>120 000</option>
+								<option>130 000</option>
+								<option>140 000</option>
+								<option>150 000</option>
+							</select>
+						</div>
+						 Select Input / End 
+
+					</div>
+
+
+					 Max Price 
+					<div class="col-md-3">
+						
+						 Select Input 
+						<div class="select-input disabled-first-option">
+							<input type="text" placeholder="Max Price" data-unit="USD"/>
+							<select>		
+								<option>Max Price</option>
+								<option>1 000</option>
+								<option>2 000</option>	
+								<option>3 000</option>	
+								<option>4 000</option>	
+								<option>5 000</option>	
+								<option>10 000</option>	
+								<option>15 000</option>	
+								<option>20 000</option>	
+								<option>30 000</option>
+								<option>40 000</option>
+								<option>50 000</option>
+								<option>60 000</option>
+								<option>70 000</option>
+								<option>80 000</option>
+								<option>90 000</option>
+								<option>100 000</option>
+								<option>110 000</option>
+								<option>120 000</option>
+								<option>130 000</option>
+								<option>140 000</option>
+								<option>150 000</option>
+							</select>
+						</div>
+						 Select Input / End 
+
+					</div>
+
+				</div>-->
+				<!-- Row With Forms / End -->
+
+			</div>
+			<!-- Box / End -->
+		</div>
+	</div>
+</div>
+</section>
+            
+            
+            
+            
+            <!-- Content
+================================================== -->
+<div class="container">
+	<div class="row fullwidth-layout">
+
+		<div class="col-md-12">
+
+			<!-- Sorting / Layout Switcher -->
+			<div class="row margin-bottom-15">
+
+				<div class="col-md-6">
+					<!-- Sort by -->
+					
+				</div>
+
+				<div class="col-md-6">
+					<!-- Layout Switcher -->
+					<div class="layout-switcher">
+						<a href="#" class="grid-three"><i class="fa fa-th"></i></a>
+						<a href="#" class="grid"><i class="fa fa-th-large"></i></a>
+						<a href="#" class="list"><i class="fa fa-th-list"></i></a>
+					</div>
+				</div>
+			</div>
+
+			
+			<!-- Listings -->
+						<div class="listings-container grid-layout-three">
+
+				<!-- Listing Item -->
+                                
+
+                                <ui:repeat var="seller" value="#{clientBean.getSellertbs}">    
+				<div class="listing-item">
+
+					<a href="single-property-page-1.html" class="listing-img-container">
+
+						<div class="listing-badges">
+							<span class="featured">Featured</span>
+                                                        <span>For #{seller.type}</span>
+						</div>
+
+						<div class="listing-img-content">
+                                                    <span class="listing-price">₹#{seller.propertyId.price} <i>#{seller.propertyId.plotArea} / sq ft</i></span>
+                                                  
+                                                    <span class="like-icon with-tip" data-tip-content="Add to Bookmarks"></span>
+							
+						</div>
+
+						<div class="listing-carousel">
+<!--                                                    <c:forEach var="a" items="#{clientBean.showPropertyimagetbs(seller.propertyId.propertyId)}">
+                                                        <div><img src="images/#{a.image}" alt=""/></div>
+                                                    </c:forEach>-->
+                                                    <ui:repeat var="a" value="#{clientBean.showPropertyimagetbs(seller.propertyId.propertyId)}">
+                                                       <div><img src="images/#{a.image}" alt=""/></div> 
+                                                    </ui:repeat>
+						</div>
+					</a>
+					
+					<div class="listing-content">
+
+						<div class="listing-title">
+                                                    <h4><a href="single-property-page-1.html">#{seller.propertyId.propertyName}</a></h4>
+							<a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&amp;hl=en&amp;t=v&amp;hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom" class="listing-address popup-gmaps">
+								<i class="fa fa-map-marker"></i>
+								#{seller.address}
+							</a>
+                                                        
+                                                        <h:form>
+                                                            <c:if test="#{clientBean.userid!=0}">
+                                                            <h:commandButton id="image-link-id" styleClass="details button border" value="Details" action="#{clientBean.showpropertybyid(seller.propertyId.propertyId)}"></h:commandButton>
+                                                            </c:if>
+                                                            
+                                                            
+<!--                                                            <h:commandLink id="image-link-id" styleClass="details button border" action="#{clientBean.showpropertybyid(seller.propertyId.propertyId)}">  
+                                                                <i class="fa fa-book"></i><h:outputText value="Details"></h:outputText>
+                                                                
+                                                               
+                                                            </h:commandLink>-->
+                                                        </h:form>
+							
+						</div>
+
+						<ul class="listing-details">
+                                                    <li>#{seller.propertyId.areaUnit} sq ft</li>
+                                                    <li><i class="fa fa-map-marker"></i> #{seller.cityId.city}</li>
+						</ul>
+
+						<div class="listing-footer">
+                                                    <a href="#"><i class="fa fa-user"></i> #{seller.userId.userName}</a>
+                                                    
+                                                    <h:form>
+                                                        <c:if test="#{clientBean.userid!=0}">
+                                                        <h:commandButton styleClass="fa fa-bookmark" style="width:10;height:10" value="Add To BookMark" action="#{clientBean.addwishlist(seller.propertyId.propertyId)}"></h:commandButton>
+                                                        </c:if>
+                                                        
+                                                    </h:form>
+						</div>
+					</div>
+                                    
+				</div>
+                                </ui:repeat>    
+
+				<!-- Listing Item / End -->
+
+
+			</div>
+
+			<!-- Listings Container / End -->
+
+			<div class="clearfix"></div>
+			<!-- Pagination -->
+			<div class="pagination-container margin-top-20">
+				
+
+				
+			</div>
+			<!-- Pagination / End -->
+
+		</div>
+
+	</div>
+</div>
+
+            <!-- Footer
+            ================================================== -->
+                <div class="margin-top-55"></div>
+
+                <ui:include src = "footer.xhtml" />
+                <!-- Footer / End -->
+
+
+                <!-- Back To Top Button -->
+                <div id="backtotop"><a href="#"></a></div>
+
+
+            <!-- Scripts
+            ================================================== -->
+            <ui:include src = "bootomscript.xhtml" />
+
+            <div id="style-switcher">
+                <h2>Color Switcher <a href="#"><i class="sl sl-icon-settings"></i></a></h2>
+
+                <div>
+                    <ul class="colors" id="color1">
+                        <li><a href="#" class="blue" title="Blue"></a></li>
+                        <li><a href="#" class="green" title="Green"></a></li>
+                        <li><a href="#" class="orange" title="Orange"></a></li>
+                        <li><a href="#" class="navy" title="Navy"></a></li>
+                        <li><a href="#" class="yellow" title="Yellow"></a></li>
+                        <li><a href="#" class="peach" title="Peach"></a></li>
+                        <li><a href="#" class="beige" title="Beige"></a></li>
+                        <li><a href="#" class="purple" title="Purple"></a></li>
+                        <li><a href="#" class="celadon" title="Celadon"></a></li>
+                        <li><a href="#" class="pink" title="Pink"></a></li>
+                        <li><a href="#" class="red" title="Red"></a></li>
+                        <li><a href="#" class="brown" title="Brown"></a></li>
+                        <li><a href="#" class="cherry" title="Cherry"></a></li>
+                        <li><a href="#" class="cyan" title="Cyan"></a></li>
+                        <li><a href="#" class="gray" title="Gray"></a></li>
+                        <li><a href="#" class="olive" title="Olive"></a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- Style Switcher / End -->
+        </div>
+    </h:body>
+</html>
+

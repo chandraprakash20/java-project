@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        
+    </h:head>
+    <h:body>
+      
+            
+            <h:form id="form">
+                    <div class="card crud-demo">
+                        <p:dataTable id="dt-products" widgetVar="dtProducts" var="product" value="#{adminBean.showcity()}"
+                                     
+                                     reflow="true" styleClass="products-table" 
+                                     paginator="true" rows="10" rowSelectMode="add" paginatorPosition="bottom"        
+                                     >
+                            <p:column headerText="Id" sortBy="#{product.cityId}" filterBy="#{product.cityId}">
+                                <h:outputText value="#{product.cityId}"/>
+                            </p:column>
+                            
+                            <p:column headerText="City" sortBy="#{product.city}" filterBy="#{product.city}">
+                                <h:outputText value="#{product.city}"/>
+                            </p:column>
+                            
+                            <p:column headerText="Status" sortBy="#{product.isActive}" filterBy="#{product.isActive}">
+                                <h:outputText value="#{product.isActive}"/>
+                            </p:column>
+                            
+                            <p:column headerText="Update">
+                            <p:commandLink id="btnupdate" action="#{adminBean.searchcity(product.cityId)}" ajax="false">
+                            <h:outputText value="Update"/>
+                            </p:commandLink>    
+                            </p:column>
+                            
+                            <p:column headerText="Delete">
+                            <p:commandLink id="btndelete" action="#{adminBean.deletecity(product.cityId)}" ajax="false">
+                            <h:outputText value="Delete"/>
+                            </p:commandLink>    
+                            </p:column>
+                            
+                            
+                        </p:dataTable>
+                    </div>
+                </h:form>
+      
+       <!--                <h:form>
+                <h:dataTable id="example2" styleClass="example2" class="table table-bordered table-hover" value="#{adminBean.showcity()}" var="city">
+                    <h:column>  
+                        <f:facet name="header">ID</f:facet>  
+                        <h:outputText value="#{city.cityId}"/>  
+                    </h:column>
+                    <h:column>  
+                        <f:facet name="header">City Name</f:facet>  
+                        <h:outputText value="#{city.city}"/>  
+                    </h:column>
+                    <h:column>  
+                        <f:facet name="header">State Name</f:facet>  
+                        <h:outputText value="#{city.stateId.state}"/>  
+                    </h:column>
+                    <h:column>  
+                        
+                        <f:facet name="header">Create date</f:facet>  
+                        <h:outputText value="#{city.createDate}"> 
+                        <f:convertDateTime pattern="dd-MM-yyyy" />
+                        </h:outputText>  
+                    </h:column>
+                    <h:column>  
+                        <f:facet name="header">Status</f:facet>  
+                        <h:outputText value="#{city.isActive}"/>  
+                    </h:column>
+                    <h:column>  
+                        <f:facet name="header">Update</f:facet>  
+                        <h:commandLink id="btnedit" action="#{adminBean.searchcity(city.cityId)}" styleClass="btn btn-icon">
+                                     <h:outputText value="Edit"/>   
+                        </h:commandLink>  
+                    </h:column>
+                    <h:column>  
+                        <f:facet name="header">Delete</f:facet>  
+                        <h:commandLink id="btndelete" action="#{adminBean.deletecity(city.cityId)}" styleClass="btn btn-icon">
+                                     <h:outputText value="Delete"/>   
+                        </h:commandLink> 
+                    </h:column>
+                </h:dataTable>  
+                </h:form>-->
+
+    </h:body>
+</html>
+

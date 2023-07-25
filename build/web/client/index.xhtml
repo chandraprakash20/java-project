@@ -1,0 +1,424 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        
+        <ui:include src = "css.xhtml" />
+    </h:head>
+    <h:body>
+    <!-- Wrapper -->
+<div id="wrapper">
+
+
+<!-- Compare Properties Widget
+================================================== -->
+<div class="compare-slide-menu">
+
+	<div class="csm-trigger"></div>
+
+	<div class="csm-content">
+		<h4>Compare Properties <div class="csm-mobile-trigger"></div></h4>
+
+		<div class="csm-properties">
+			 
+			<!-- Property -->
+			<div class="listing-item compact">
+				<a href="single-property-page-2.html" class="listing-img-container">
+					<div class="remove-from-compare"><i class="fa fa-close"></i></div>
+					<div class="listing-badges">
+						<span>For Sale</span>
+					</div>
+					<div class="listing-img-content">
+						<span class="listing-compact-title">Eagle Apartments <i>$420,000</i></span>
+					</div>
+                                        <img src="images/listing-01.jpg" alt=""/>
+				</a>
+			</div>
+			
+			<!-- Property -->
+			<div class="listing-item compact">
+				<a href="single-property-page-2.html" class="listing-img-container">
+					<div class="remove-from-compare"><i class="fa fa-close"></i></div>
+					<div class="listing-badges">
+						<span>For Sale</span>
+					</div>
+					<div class="listing-img-content">
+						<span class="listing-compact-title">Selway Apartments <i>$420,000</i></span>
+					</div>
+					<img src="images/listing-03.jpg" alt=""/>
+				</a>
+			</div>
+			
+			<!-- Property -->
+			<div class="listing-item compact">
+				<a href="single-property-page-2.html" class="listing-img-container">
+					<div class="remove-from-compare"><i class="fa fa-close"></i></div>
+					<div class="listing-badges">
+						<span>For Sale</span>
+					</div>
+					<div class="listing-img-content">
+						<span class="listing-compact-title">Oak Tree Villas <i>$535,000</i></span>
+					</div>
+					<img src="images/listing-05.jpg" alt=""/>
+				</a>
+			</div>
+
+		</div>
+
+		<div class="csm-buttons">
+			<a href="compare-properties.html" class="button">Compare</a>
+			<a href="#" class="button reset">Reset</a>
+		</div>
+	</div>
+
+</div>
+<!-- Compare Properties Widget / End -->
+
+
+<!-- Header Container
+================================================== -->
+<ui:include src = "header.xhtml" />
+<!-- Header Container / End -->
+
+
+<!-- Banner
+================================================== -->
+<div class="parallax" data-background="images/home-parallax.jpg" data-color="#36383e" data-color-opacity="0.45" data-img-width="2500" data-img-height="1600">
+	<div class="parallax-content">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+
+					<!-- Main Search Container -->
+<!--					<div class="main-search-container">
+						<h2>Find Your Dream Home</h2>
+						
+						 Main Search 
+						<form class="main-search-form">
+							
+							 Type 
+							<div class="search-type">
+								<label class="active"><input class="first-tab" name="tab" checked="checked" type="radio"/>Any Status</label>
+								
+								<div class="search-type-arrow"></div>
+							</div>
+
+							
+							 Box 
+							<div class="main-search-box">
+								
+								 Main Search Input 
+								<div class="main-search-input larger-input">
+									<input id="autocomplete-input" type="text" class="ico-01" placeholder="Enter address e.g. street, city and state or zip" value=""/>
+									<button class="button">Search</button>
+								</div>
+
+								 Row 
+								<div class="row with-forms">
+
+									 Property Type 
+									<div class="col-md-4">
+										<select data-placeholder="Any Type" class="chosen-select-no-single" >
+											<option>Any Type</option>	
+											<option>Apartments</option>
+											<option>Houses</option>
+											<option>Commercial</option>
+											<option>Garages</option>
+											<option>Lots</option>
+										</select>
+									</div>
+
+
+									 Min Price 
+									<div class="col-md-4">
+										
+										 Select Input 
+										<div class="select-input">
+											<input type="text" placeholder="Min Price" data-unit="USD"/>
+										</div>
+										 Select Input / End 
+
+									</div>
+
+
+									 Max Price 
+									<div class="col-md-4">
+										
+										 Select Input 
+										<div class="select-input">
+											<input type="text" placeholder="Max Price" data-unit="USD"/>
+										</div>
+										 Select Input / End 
+
+									</div>
+
+								</div>
+								 Row / End 
+
+
+								 More Search Options 
+							
+								 More Search Options / End 
+
+
+							</div>
+							 Box / End 
+
+						</form>
+						 Main Search 
+
+					</div>-->
+					<!-- Main Search Container / End -->
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="container">
+	<div class="row">
+	
+		<div class="col-md-12">
+			<h3 class="headline margin-bottom-25 margin-top-65">Newly Added</h3>
+		</div>
+		
+		<!-- Carousel -->
+		<div class="col-md-12">
+			<div class="carousel">
+				
+				<!-- Listing Item -->
+                                <ui:repeat var="seller" value="#{clientBean.showSellertbs()}">
+                                <div class="carousel-item">
+                                    <div class="listing-item">
+
+                                        <a href="#" class="listing-img-container">
+
+                                            <div class="listing-badges">
+                                                <span class="featured">Featured</span>
+                                                <span>For #{seller.type}</span>
+                                            </div>
+
+                                            <div class="listing-img-content">
+                                                <span class="listing-price">₹#{seller.propertyId.price} <i>#{seller.propertyId.plotArea} / sq ft</i></span>
+                                                <span class="like-icon with-tip" data-tip-content="Add to Bookmarks"></span>
+                                                <span class="compare-button with-tip" data-tip-content="Add to Compare"></span>
+                                            </div>
+
+                                            <div class="listing-carousel">
+                                                <ui:repeat var="a" value="#{clientBean.showPropertyimagetbs(seller.propertyId.propertyId)}">
+                                                <div><img src="images/#{a.image}" alt=""/></div>
+                                                </ui:repeat>
+                                            </div>
+
+                                        </a>
+
+                                        <div class="listing-content">
+
+                                            <div class="listing-title">
+                                                <h4><a href="single-property-page-1.html">#{seller.propertyId.propertyName}</a></h4>
+                                                <a href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&amp;hl=en&amp;t=v&amp;hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom" class="listing-address popup-gmaps">
+                                                    <i class="fa fa-map-marker"></i>
+                                                    #{seller.address}
+                                                </a>
+                                            </div>
+
+                                            <ul class="listing-features">
+                                                <li>Area <span>#{seller.propertyId.areaUnit} sq ft</span></li>
+                                                
+                                            </ul>
+
+                                            <div class="listing-footer">
+                                                <a href="#"><i class="fa fa-user"></i> #{seller.userId.userName}</a>
+                                                
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                </ui:repeat>    
+				<!-- Listing Item / End -->
+
+
+				
+
+
+
+
+				
+
+
+
+
+
+			</div>
+		</div>
+		<!-- Carousel / End -->
+
+	</div>
+</div>
+
+
+
+<!-- Fullwidth Section -->
+<section class="fullwidth margin-top-105" data-background-color="#f7f7f7">
+
+	<!-- Box Headline -->
+	<h3 class="headline-box">What are you looking for?</h3>
+	
+	<!-- Content -->
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-3 col-sm-6">
+				<!-- Icon Box -->
+				<div class="icon-box-1">
+
+					<div class="icon-container">
+						<i class="im im-icon-Office"></i>
+						<div class="icon-links">
+							<a href="listings-grid-standard-with-sidebar.html">For Sale</a>
+							<a href="listings-grid-standard-with-sidebar.html">For Rent</a>
+						</div>
+					</div>
+
+					<h3>Apartments</h3>
+					<p>Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim donec vel lectus vel felis.</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 col-sm-6">
+				<!-- Icon Box -->
+				<div class="icon-box-1">
+
+					<div class="icon-container">
+						<i class="im im-icon-Home-2"></i>
+						<div class="icon-links">
+							<a href="listings-grid-standard-with-sidebar.html">For Sale</a>
+							<a href="listings-grid-standard-with-sidebar.html">For Rent</a>
+						</div>
+					</div>
+
+					<h3>Houses</h3>
+					<p>Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim donec vel lectus vel felis.</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 col-sm-6">
+				<!-- Icon Box -->
+				<div class="icon-box-1">
+
+					<div class="icon-container">
+						<i class="im im-icon-Car-3"></i>
+						<div class="icon-links">
+							<a href="listings-grid-standard-with-sidebar.html">For Sale</a>
+							<a href="listings-grid-standard-with-sidebar.html">For Rent</a>
+						</div>
+					</div>
+
+					<h3>Garages</h3>
+					<p>Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim donec vel lectus vel felis.</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 col-sm-6">
+				<!-- Icon Box -->
+				<div class="icon-box-1">
+
+					<div class="icon-container">
+						<i class="im im-icon-Clothing-Store"></i>
+						<div class="icon-links">
+							<a href="listings-grid-standard-with-sidebar.html">For Sale</a>
+							<a href="listings-grid-standard-with-sidebar.html">For Rent</a>
+						</div>
+					</div>
+
+					<h3>Commercial</h3>
+					<p>Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim donec vel lectus vel felis.</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+<!-- Fullwidth Section / End -->
+
+
+<!-- Container -->
+
+<!-- Container / End -->
+
+
+<!-- Fullwidth Section -->
+
+<!-- Fullwidth Section / End -->
+
+
+<!-- Flip banner -->
+<a href="listings-half-map-grid-standard.html" class="flip-banner parallax" data-background="images/flip-banner-bg.jpg" data-color="#274abb" data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
+	<div class="flip-banner-content">
+		<h2 class="flip-visible">We help people and homes find each other</h2>
+		<h2 class="flip-hidden">Browse Properties <i class="sl sl-icon-arrow-right"></i></h2>
+	</div>
+</a>
+<!-- Flip banner / End -->
+
+
+
+
+<!-- Footer
+================================================== -->
+<!-- Footer / End -->
+<ui:include src = "footer.xhtml" />
+
+<!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
+
+
+<!-- Scripts
+================================================== -->
+<ui:include src = "bootomscript.xhtml" />
+
+<div id="style-switcher">
+	<h2>Color Switcher <a href="#"><i class="sl sl-icon-settings"></i></a></h2>
+	
+	<div>
+		<ul class="colors" id="color1">
+			<li><a href="#" class="blue" title="Blue"></a></li>
+			<li><a href="#" class="green" title="Green"></a></li>
+			<li><a href="#" class="orange" title="Orange"></a></li>
+			<li><a href="#" class="navy" title="Navy"></a></li>
+			<li><a href="#" class="yellow" title="Yellow"></a></li>
+			<li><a href="#" class="peach" title="Peach"></a></li>
+			<li><a href="#" class="beige" title="Beige"></a></li>
+			<li><a href="#" class="purple" title="Purple"></a></li>
+			<li><a href="#" class="celadon" title="Celadon"></a></li>
+			<li><a href="#" class="pink" title="Pink"></a></li>
+			<li><a href="#" class="red" title="Red"></a></li>
+			<li><a href="#" class="brown" title="Brown"></a></li>
+			<li><a href="#" class="cherry" title="Cherry"></a></li>
+			<li><a href="#" class="cyan" title="Cyan"></a></li>
+			<li><a href="#" class="gray" title="Gray"></a></li>
+			<li><a href="#" class="olive" title="Olive"></a></li>
+		</ul>
+	</div>
+		
+</div>
+<!-- Style Switcher / End -->
+
+
+</div>
+<!-- Wrapper / End -->
+
+
+    </h:body>
+</html>
+
